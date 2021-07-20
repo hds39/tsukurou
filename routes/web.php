@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\TopController::class, 'index'])->name('top');
+Route::post('/create-data', [App\Http\Controllers\TopController::class, 'createData'])->name('create-data');
+
+Route::get('/registed-data', [App\Http\Controllers\RegistedDataController::class, 'showDataForm'])->name('registed-data');
 
 Auth::routes();
 

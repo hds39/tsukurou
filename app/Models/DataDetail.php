@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class DataDetail extends Model
 {
     use HasFactory;
+
+    public function datum()
+    {
+        return $this->belongsTo('App\Models\Datum');
+    }
 }
