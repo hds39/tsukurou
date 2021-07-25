@@ -27,7 +27,7 @@
     @if (!empty($data))
         @foreach ($data as $datum)
         <label for="data">作成済みのデータ</label>
-        <a href="{{ route('registed-data') }}">{{ $datum->name }}</a>
+        <a href="{{ route('data', $datum->id) }}">{{ $datum->name }}</a>
         @endforeach
     @else
         <p>データを作成しましょう。</p>

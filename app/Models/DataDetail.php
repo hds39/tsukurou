@@ -9,6 +9,8 @@ class DataDetail extends Model
 {
     use HasFactory;
 
+    protected $table = 'data_details';
+
     public function datum()
     {
         return $this->belongsTo('App\Models\Datum');
