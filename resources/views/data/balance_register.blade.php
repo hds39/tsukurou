@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label for="balance">収支</label>
-                <input id="balance" type="text" name="balance">
+                <input id="balance" type="number" name="balance">
             </div>
             <div>
                 <button type="submit" class="btn btn-block btn-secondary" style="width: 100px">
