@@ -15,14 +15,14 @@ class CreateDataDetailsTable extends Migration
     {
         Schema::create('data_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('data_id');
+            $table->unsignedBigInteger('datum_id');
             $table->date('date');
             $table->string('categories');
             $table->integer('balance');
             
             $table->timestamps();
 
-            $table->foreign('data_id')->references('id')->on('data');
+            $table->foreign('datum_id')->references('id')->on('data');
         });
     }
 

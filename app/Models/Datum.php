@@ -18,4 +18,9 @@ class Datum extends Model
     {
         return $this->hasMany('App\Models\DataDetail');
     }
+
+    public function accountDetails()
+    {
+        return $this->hasMany('App\Models\AccountDetail');
+    }
 }

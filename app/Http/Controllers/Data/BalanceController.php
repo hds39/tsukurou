@@ -8,12 +8,13 @@ use App\Models\AccountDetail;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class BalanceController extends Controller
 {
     public function showRegistrationForm(Datum $data)
     {
-        $accounts = AccountDetail::all();
+        $accounts = Datum::find($data->id)->accountdetails;
         return view('data.balance_register',['data' => $data, 'accounts' => $accounts]);
     }
     //
@@ -26,19 +27,30 @@ class BalanceController extends Controller
         $data_details->date = $request->date;
         $data_details->categories = $request->categories;
         $data_details->balance = $request->balance;
-        $data_details->data_id = $data->id;
+        $data_details->datum_id = $data->id;
 
         $data_details->save();
 
         return redirect()->route('data.balance-register', ['data' => $data]);
     }
 
-    public function registerCategory(CategoryRequest $request, Datum $data)
+    public function registerCategory(Request $request, Datum $data)
     {
+        $request->validate([
+            'account_items' => ['required', Rule::unique('account_details','account_items')->where('datum_id' ,$data->id)]
+        ],
+        [
+            'account_items.required' => '勘定項目を入力してください',
+            'account_items.unique' => '既に登録されています',
+        ]);
+
         $account_details = new AccountDetail;
         $account_details->account_items = $request->account_items;
+        $account_details->datum_id = $data->id;
 
         $account_details->save();
+
+       
 
         return redirect()->route('data.balance-register', ['data' => $data, 'msg' => 'OK']);
     }

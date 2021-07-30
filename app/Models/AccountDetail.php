@@ -9,4 +9,9 @@ class AccountDetail extends Model
 {
     protected $table = 'account_details';
     use HasFactory;
+
+    public function datum()
+    {
+        return $this->belongsTo('App\Models\Datum');
+    }
 }
