@@ -15,7 +15,7 @@ class CreateAccountDetailsTable extends Migration
     {
         Schema::create('account_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('datum_id');
+            $table->unsignedBigInteger('datum_id')->nullable();
             $table->string('account_items');
             $table->timestamps();
 

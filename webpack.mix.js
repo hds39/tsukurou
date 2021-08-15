@@ -13,4 +13,11 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .vue()
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css', {
+        sassOptions: {
+            includePaths: [
+                'node_modules',
+                'node_modules/bootstrap-honoka/scss'
+            ]
+        }
+    });

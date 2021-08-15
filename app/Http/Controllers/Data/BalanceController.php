@@ -14,8 +14,9 @@ class BalanceController extends Controller
 {
     public function showRegistrationForm(Datum $data)
     {
+        $accounts_all = AccountDetail::all()->where('datum_id', null);
         $accounts = Datum::find($data->id)->accountdetails;
-        return view('data.balance_register',['data' => $data, 'accounts' => $accounts]);
+        return view('data.balance_register',['data' => $data, 'accounts' => $accounts, 'accounts_all' => $accounts_all]);
     }
     //
 
