@@ -54,5 +54,6 @@ class BalanceController extends Controller
        
 
         return redirect()->route('data.balance-register', ['data' => $data, 'msg' => 'OK']);
+        
     }
 }

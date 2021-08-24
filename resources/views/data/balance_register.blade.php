@@ -16,10 +16,10 @@
                 <div class="form-group row justify-content-center">
                     <div>
                         <label for="account_items"></label>
-                        <input id="account_items" type="text" class="form-control" name="account_items">
+                        <input id="account_items" type="text" class="mt-1 mx-3" name="account_items">
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-block btn-secondary" style="width: 100px">
+                        <button type="submit" class="btn btn-block btn-secondary " style="width: 100px">
                             登録
                         </button>
                     </div>    
@@ -39,7 +39,7 @@
     <div class="d-flex justify-content-center mt-3">
         <div class="card" style="width: 500px">
             <div class="card-body">
-                    <div class="d-flex justify-content-center mt-3">
+                    <div class="d-flex justify-content-center mt-2">
 
                         <form method="POST" action="{{ route('data.balance-register',  $data->id) }}"  class="p-5">
                             @csrf
@@ -83,9 +83,9 @@
                                 
                             </div>
 
-                            <div class="form-group mb-0">
-                                <button type="submit" class="btn btn-block btn-secondary" style="width: 100px">
-                                    登録
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-block btn-secondary mx-auto d-block" style="width: 100px">
+                                    保存
                                 </button>
                             </div>
 

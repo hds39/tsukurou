@@ -6,12 +6,12 @@
 
 @section('content')
 <div class="container">
-    <div class="text-center">
+    <div class="text-center my-3">
         <h3>新規データを作成</h3>
     </div> 
         <form method="POST" action="{{ route('create-data') }}" >
             @csrf
-            <div class="form-group row justify-content-center">
+            <div class="form-group row justify-content-center mb-3">
                 
                 <input id="name" type="text" name="name">
                     <div>
@@ -30,7 +30,9 @@
         @if (!empty($data))
         <div class="text-center">
             <label for="data">
-                <h4>作成済みのデータ</h4>
+                <div class="mt-3">
+                    <h4>作成済みのデータ</h4>
+                </div>
             </label>
         </div>
         @foreach ($data as $datum)
